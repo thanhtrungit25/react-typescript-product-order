@@ -16,12 +16,15 @@ export class HttpHandler {
   }
 
   storeOrder(order: Order, callback: (id: number) => void): void {
-    let orderData = [...order.orderLines.values()].map(ol => ({
-      productId: ol.product.id,
-      productName: ol.product.name,
-      quantity: ol.quantity
-    }))
-    Axios.post(urls.orders, orderData)
-      .then(response => callback(response.data.id))
+    let orderData = {
+      lines: [...order.orderLines.values()].map((ol) => ({
+        productId: ol.product.id,
+        productName: ol.product.name,
+        quantity: ol.quantity,
+      })),
+    };
+    Axios.post(urls.orders, orderData).then((response) =>
+      callback(response.data.id)
+    );
   }
 }
