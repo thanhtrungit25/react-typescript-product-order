@@ -64,5 +64,21 @@
       "price": 1200
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "lines": [
+        {
+          "productId": 1,
+          "productName": "Kayak",
+          "quantity": 1
+        },
+        {
+          "productId": 2,
+          "productName": "Lifejacket",
+          "quantity": 1
+        }
+      ],
+      "id": 1
+    }
+  ]
 }
