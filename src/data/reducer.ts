@@ -11,7 +11,7 @@ export const StoreReducer: Reducer<StoreData, StoreAction> = (
     case ACTIONS.ADD_PRODUCTS:
       return {
         ...data,
-        products: [...data.products, ...action.payload],
+        products: [...action.payload],
       };
 
     case ACTIONS.MODIFY_ORDER:
