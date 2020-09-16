@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { HttpHandler } from './data/httpHandler';
 import { addProduct } from './data/actionCreators';
 import { ConnectedProductList } from './data/productListConnector';
+import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
 
 interface Props {
   // no props required
@@ -24,7 +25,12 @@ export default class App extends Component<Props> {
   render = () => (
     <div className='App'>
       <Provider store={dataStore}>
-        <ConnectedProductList />
+        <BrowserRouter>
+          <Switch>
+            <Route path='/products' component={ConnectedProductList} />
+            <Redirect to='/products' />
+          </Switch>
+        </BrowserRouter>
       </Provider>
     </div>
   );
